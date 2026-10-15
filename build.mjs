@@ -11,11 +11,12 @@ if (path.dirname(output) !== root || path.basename(output) !== 'dist') {
 
 const publicFiles = [
   'index.html', 'styles.css', 'site.css', 'brown.css', 'typography.css',
-  'motion.css', 'mobile.css', 'site.js', 'motion.js', 'mobile.js'
+  'motion.css', 'mobile.css', 'hero.css', 'site.js', 'motion.js', 'mobile.js'
 ];
 const properties = JSON.parse(await readFile(path.join(root, 'data/properties.json'), 'utf8'));
 const photos = properties.flatMap(property => property.fotos.map(photo => photo.local));
-const required = new Set([...publicFiles, 'assets/logo-original.png', ...photos, ...properties.map(property => property.cover)]);
+const previews = properties.flatMap(property => property.cardImage ? [property.cardImage.small, property.cardImage.large] : []);
+const required = new Set([...publicFiles, 'assets/logo-original.png', 'assets/hero/paisagem-campo-800.webp', 'assets/hero/paisagem-campo-1600.webp', ...photos, ...previews, ...properties.map(property => property.cover)]);
 for (const relative of required) {
   if (typeof relative !== 'string') throw new Error('Um imóvel está sem arquivo local.');
   const source = path.resolve(root, relative);

@@ -47,6 +47,7 @@ O primeiro comando verifica a sintaxe dos módulos. O segundo verifica os arquiv
 | `index.html` | Estrutura compartilhada, logo, ícones e diálogos |
 | `site.js` | Rotas, catálogo, filtros, favoritos e galerias |
 | `styles.css`, `site.css`, `brown.css` | Base visual e identidade |
+| `hero.css` | Capa institucional, composição de abertura e imagens responsivas |
 | `typography.css` | Escala de fontes e estilos do WhatsApp |
 | `mobile.css`, `mobile.js` | Experiência móvel, filtros e gestos |
 | `motion.css`, `motion.js` | Animações e preferência de movimento reduzido |
@@ -66,3 +67,9 @@ O contato ocorre por links de WhatsApp, telefone e e-mail, sem formulários de a
 A fotografia, o nome e a logo da EB Fazendas permanecem identificados como conteúdo da marca. O ícone de WhatsApp utiliza Bootstrap Icons; sua licença está em `assets/icons/bootstrap-icons-LICENSE.txt`.
 
 As fontes Manrope e DM Serif Display são distribuídas com suas licenças em `assets/licenses/`.
+
+## Fotografias e capa
+
+A abertura utiliza uma paisagem ilustrativa criada com imagegen, identificada no site e sem vínculo com um imóvel anunciado. O prompt e a origem estão em `assets/hero/README.txt`. As capas e as galerias dos anúncios continuam usando fotografias reais dos respectivos imóveis, com as marcas originais preservadas.
+
+Os cards utilizam variantes WebP em 480 e 800 pixels por meio de `picture` e `srcset`; o JPEG original permanece como fallback. Os arquivos originais de galeria permanecem disponíveis em resolução integral. Ao adicionar um imóvel, `cardImage` é opcional; sem variantes, o card usa `cover`.
