@@ -70,6 +70,6 @@ As fontes Manrope e DM Serif Display são distribuídas com suas licenças em `a
 
 ## Fotografias e capa
 
-A abertura utiliza uma paisagem ilustrativa criada com imagegen, identificada no site e sem vínculo com um imóvel anunciado. O prompt e a origem estão em `assets/hero/README.txt`. As capas e as galerias dos anúncios continuam usando fotografias reais dos respectivos imóveis, com as marcas originais preservadas.
+A abertura utiliza uma paisagem ilustrativa criada com imagegen, sem vínculo com um imóvel anunciado. O prompt e a origem estão em `assets/hero/README.txt`. As capas e as galerias dos anúncios continuam usando fotografias reais dos respectivos imóveis, com as marcas originais preservadas.
 
 Os cards utilizam variantes WebP em 480 e 800 pixels por meio de `picture` e `srcset`; o JPEG original permanece como fallback. Os arquivos originais de galeria permanecem disponíveis em resolução integral. Ao adicionar um imóvel, `cardImage` é opcional; sem variantes, o card usa `cover`.

@@ -37,7 +37,6 @@
 .hero-portfolio > div:first-child span { max-width: 132px; }
 .hero-portfolio span { font-size: 14px; line-height: 1.6; color: #ddcbb4; }
 .hero-portfolio-divider { display: block; width: 1px; height: 40px; background: #ffffff30; }
-.hero-image-note { font-size: 14px; line-height: 1.5; color: #e8d9c4; }
 .card-image > a > picture { display: block; width: 100%; height: 100%; }
 .card-image > a > picture > img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -72,7 +71,6 @@
   .hero-portfolio > div:last-child strong { font-size: 16px; }
   .hero-portfolio > div:last-child span { display: none; }
   .hero-portfolio-divider { height: 30px; }
-  .hero-image-note { font-size: 14px; flex-basis: 100%; color: #d3bea5; }
 }
 
 @media (max-width: 400px) {
