@@ -1,0 +1,81 @@
+/* Motion uses opacity and transforms so layout and scrolling remain stable. */
+@keyframes eb-rise {
+  from { opacity: 0; transform: translate3d(0, 24px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes eb-landscape {
+  from { transform: scale(1.055); }
+  to { transform: scale(1); }
+}
+@keyframes eb-dialog {
+  from { opacity: 0; transform: translate3d(0, 12px, 0) scale(.98); }
+  to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+}
+@keyframes eb-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes eb-whatsapp-ring {
+  0% { opacity: .55; transform: scale(1); }
+  70%, 100% { opacity: 0; transform: scale(1.5); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .motion-pending { opacity: 0; transform: translate3d(0, 24px, 0); }
+  .motion-pending:focus-within { opacity: 1; transform: none; }
+  .global-header { animation: eb-fade .65s ease-out both; }
+  .reference-hero .home-hero-image,
+  .detail-hero .hero-photo { animation: eb-landscape 1.8s cubic-bezier(.22, 1, .36, 1) both; }
+  .brown-hero-card { animation: eb-rise .8s cubic-bezier(.22, 1, .36, 1) both; }
+  .brown-hero-card > .eyebrow { animation: eb-rise .75s .08s cubic-bezier(.22, 1, .36, 1) both; }
+  .brown-hero-card > h1 { animation: eb-rise .8s .14s cubic-bezier(.22, 1, .36, 1) both; }
+  .brown-hero-card > p:not(.eyebrow) { animation: eb-rise .8s .22s cubic-bezier(.22, 1, .36, 1) both; }
+  .brown-hero-card > .hero-card-bottom { animation: eb-rise .8s .3s cubic-bezier(.22, 1, .36, 1) both; }
+  .hero-photo-link, .detail-hero .hero-copy { animation: eb-rise .85s .16s cubic-bezier(.22, 1, .36, 1) both; }
+  .gallery-dialog[open], .video-dialog[open] { animation: eb-dialog .32s cubic-bezier(.22, 1, .36, 1) both; }
+  .gallery-dialog[open]::backdrop, .video-dialog[open]::backdrop { animation: eb-fade .25s ease-out both; }
+  .main-nav.open { animation: eb-rise .28s cubic-bezier(.22, 1, .36, 1) both; }
+  .feature-accordions details[open] .accordion-content { animation: eb-rise .4s cubic-bezier(.22, 1, .36, 1) both; }
+  a.floating-whatsapp::after {
+    content: ''; position: absolute; inset: 0; border-radius: inherit;
+    border: 2px solid var(--whatsapp-bright); opacity: 0; pointer-events: none;
+    animation: eb-whatsapp-ring 2.6s 1.2s 3 ease-out;
+  }
+  .button, .card-detail-button, .category-tabs > button, .pagination > button,
+  .card-save, a.whatsapp-link, a.floating-whatsapp {
+    transition: transform .25s cubic-bezier(.22, 1, .36, 1), background .25s ease,
+      color .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .button > svg:last-child, .card-detail-button > svg,
+  .text-button > svg { transition: transform .3s cubic-bezier(.22, 1, .36, 1); }
+  .button:active, .card-detail-button:active, a.whatsapp-link:active { transform: scale(.98); }
+  .card-save:active { transform: scale(.92); }
+  .property-card { transition: transform .4s cubic-bezier(.22, 1, .36, 1), box-shadow .4s ease; }
+  .card-image img, .photo-tile > img, .help-image > img,
+  .seller-photo > img { transition: transform .7s cubic-bezier(.22, 1, .36, 1); }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .property-card:hover { transform: translateY(-7px); box-shadow: 0 16px 36px #543a2020; }
+  .property-card:hover .card-image img, .photo-tile:hover > img,
+  .help-image:hover > img, .seller-photo:hover > img { transform: scale(1.045); }
+  .button:hover > svg:last-child:not(.icon-whatsapp),
+  .card-detail-button:hover > svg, .text-button:hover > svg { transform: translateX(4px); }
+  .card-save:hover { transform: scale(1.08); }
+  a.whatsapp-link:hover { transform: translateY(-2px); box-shadow: 0 6px 16px #15803d24; }
+}
+
+@media (max-width: 680px) and (prefers-reduced-motion: no-preference) {
+  .reference-hero .home-hero-image,
+  .detail-hero .hero-photo { animation-duration: 1.25s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .motion-pending { opacity: 1; transform: none; }
+}

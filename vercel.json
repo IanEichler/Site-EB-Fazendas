@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/propriedades", "destination": "/index.html" },
+    { "source": "/imovel/:id", "destination": "/index.html" },
+    { "source": "/quero-vender", "destination": "/index.html" },
+    { "source": "/contato", "destination": "/index.html" }
+  ]
+}

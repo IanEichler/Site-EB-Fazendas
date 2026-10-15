@@ -1,0 +1,49 @@
+EB FAZENDAS — SITE COMPLETO, REDESIGN LOCAL
+
+Para abrir novamente:
+1. Execute iniciar.bat nesta pasta.
+2. Acesse http://localhost:3000 no navegador.
+
+Requisito: Node.js 18 ou superior. Nao precisa instalar dependencias.
+Alternativa pelo terminal: npm start
+
+Paginas:
+- /: inicio, busca, destaques, regioes e apresentacao da EB
+- /propriedades: catalogo, filtros, ordenacao, paginacao e favoritos
+- /imovel/ID: detalhes e galeria de cada uma das 34 propriedades
+- /quero-vender: apresentacao de uma propriedade a equipe
+- /contato: contato geral e agendamento com o imovel selecionado
+
+Arquivos editaveis:
+- index.html: estrutura compartilhada e logo original
+- site.js: navegacao, paginas, catalogo, galerias e contato direto
+- styles.css: base visual
+- site.css: estrutura visual do site completo e responsividade
+- brown.css: identidade marrom e bege inspirada na referencia MR Imoveis
+- typography.css: escala de fontes, legibilidade e ajustes de espaco
+- motion.css / motion.js: animacoes de entrada, interacoes e galeria, com movimento reduzido
+- mobile.css / mobile.js: navegacao movel, filtros em painel, contato rapido e gestos na galeria
+- data/properties.json: dados publicos dos 34 imoveis
+- assets/: 705 fotografias originais, logo e fontes locais
+- server.mjs: servidor HTTP local
+- app.js: arquivo preservado da primeira versao, nao utilizado
+
+O contato e direto por WhatsApp, telefone e e-mail, sem formularios de atendimento.
+A busca e os filtros de propriedades continuam disponiveis.
+Textos e botoes usam 16 px; legendas e informacoes de apoio usam no minimo 14 px.
+Videos, WhatsApp, Google Maps e Instagram precisam de internet.
+Fotos, fontes e catalogo funcionam localmente.
+Favoritos sao guardados apenas no navegador deste dispositivo.
+Valores em sacas de soja preservam a unidade original e nao entram em filtros em reais.
+Dados, fotos e contatos foram obtidos de https://ebfazendas.com.br em 15/10/2026.
+O site local nao utiliza o backend de producao.
+
+No celular: cabecalho fixo, busca avancada recolhida, filtros em tela propria,
+WhatsApp direto no rodape do imovel e galeria com gestos horizontais.
+A pagina inicial mostra tres destaques por colecao; o catalogo continua completo.
+
+PUBLICACAO NA VERCEL
+Importe IanEichler/Site-EB-Fazendas com raiz ./ e preset Other.
+Build: npm run build. Pasta de saida: dist.
+O vercel.json ja define essas opcoes e as rotas das paginas internas.
+Veja README.md para orientacoes completas.
