@@ -2,10 +2,13 @@
   "name": "eb-fazendas-redesign",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Site completo da EB Fazendas — redesign local",
   "scripts": {
     "start": "node server.mjs",
-    "check": "node --check site.js && node --check mobile.js && node --check motion.js && node --check server.mjs && node --check build.mjs",
+    "check": "node --check site.js && node --check pages.js && node --check model.js && node --check seo.js && node --check document.mjs && node --check mobile.js && node --check motion.js && node --check server.mjs && node --check build.mjs",
+    "test": "node --test",
+    "verify": "node checks/verify-build.mjs",
     "build": "node build.mjs"
   },
   "engines": {

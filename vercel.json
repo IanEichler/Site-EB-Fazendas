@@ -5,9 +5,9 @@
   "outputDirectory": "dist",
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/propriedades", "destination": "/index.html" },
-    { "source": "/imovel/:id", "destination": "/index.html" },
-    { "source": "/quero-vender", "destination": "/index.html" },
-    { "source": "/contato", "destination": "/index.html" }
+    { "source": "/propriedades", "destination": "/propriedades/index.html" },
+    { "source": "/imovel/:id", "destination": "/imovel/:id/index.html" },
+    { "source": "/quero-vender", "destination": "/quero-vender/index.html" },
+    { "source": "/contato", "destination": "/contato/index.html" }
   ]
 }

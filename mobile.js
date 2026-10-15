@@ -114,8 +114,9 @@ document.addEventListener('click', event => {
   if (toggle) {
     const open = toggle.getAttribute('aria-expanded') !== 'true';
     toggle.setAttribute('aria-expanded', String(open));
-    document.querySelector('#home-advanced-fields')?.classList.toggle('is-open', open);
-    toggle.querySelector('span').textContent = open ? 'Menos filtros' : 'Mais filtros: área e valor';
+    const fields=document.querySelector('#home-advanced-fields');
+    if(fields){fields.hidden=!open;fields.classList.toggle('is-open',open);}
+    toggle.querySelector('span').textContent = open ? 'Menos filtros' : 'Mais filtros';
   }
   const menu = document.querySelector('.main-nav');
   if (mobile.matches && menu.classList.contains('open') && !event.target.closest('.global-header'))

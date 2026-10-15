@@ -1,8 +1,9 @@
 import http from 'node:http';
 import { createReadStream } from 'node:fs';
-import { stat } from 'node:fs/promises';
+import { stat, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import {renderDocument} from './document.mjs';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const port = Number(process.env.PORT || 3000);
@@ -14,7 +15,14 @@ const server = http.createServer(async (req, res) => {
     const url = new URL(req.url, `http://localhost:${port}`);
     const requestPath = decodeURIComponent(url.pathname);
     const isPage = requestPath === '/' || !path.extname(requestPath);
-    const relative = isPage ? 'index.html' : requestPath.replace(/^\/+/, '');
+    if (isPage) {
+      const [template,data] = await Promise.all([readFile(path.join(root,'index.html'),'utf8'),readFile(path.join(root,'data/properties.json'),'utf8')]);
+      const {html,status} = renderDocument(template,JSON.parse(data),{pathname:requestPath,search:url.search,origin:`http://localhost:${port}`,noindex:true});
+      res.writeHead(status,{'Content-Type':'text/html; charset=utf-8','Content-Length':Buffer.byteLength(html),'Cache-Control':'no-cache','X-Content-Type-Options':'nosniff'});
+      res.end(req.method === 'HEAD' ? undefined : html);
+      return;
+    }
+    const relative = requestPath.replace(/^\/+/, '');
     const file = path.resolve(root, relative);
     const safePath = path.relative(root, file);
     if (safePath.startsWith('..') || path.isAbsolute(safePath)) { res.writeHead(403); res.end('Forbidden'); return; }
